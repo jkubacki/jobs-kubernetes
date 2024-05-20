@@ -1,0 +1,13 @@
+# Kubernetes secrets
+*.secret
+*.secret.yml
+*/**/secrets.yml
+*/**/basic-auth.yml
+*/**/private-registry-secret.yml
+.DS_Store
+kubeseal.public.pem
+kubeseal.public.pem.backup
+kubeseal.public.dev.pem
+kubeseal.public.dev.pem.backup
+.vscode
+*.sql
