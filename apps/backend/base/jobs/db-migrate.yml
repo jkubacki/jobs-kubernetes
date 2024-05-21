@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-migrate
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  backoffLimit: 2
+  ttlSecondsAfterFinished: 30
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: db-migrate
+          image: jkubacki/jobs-api:kustomize
+          command: ["/bin/sh", "-c"]
+          args: ["cd /app/ && bundle exec rake db:migrate"]
+          envFrom:
+            - secretRef:
+                name: secrets
+            - configMapRef:
+                name: configmap

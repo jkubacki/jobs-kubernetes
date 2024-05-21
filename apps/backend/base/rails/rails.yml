@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rails
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: rails
+  template:
+    metadata:
+      labels:
+        app: rails
+    spec:
+      terminationGracePeriodSeconds: 30 # Allow requests to finish
+      containers:
+        - name: rails
+          image: jkubacki/jobs-api:kustomize
+          imagePullPolicy: IfNotPresent
+          readinessProbe:
+            httpGet:
+              path: /up
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 5
+          resources:
+            requests:
+              cpu: 300m
+              memory: 1536Mi
+            limits:
+              cpu: 650m
+              memory: 2048Mi
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - secretRef:
+                name: secrets
+            - configMapRef:
+                name: configmap
+          env:
+            - name: RAILS_SERVE_STATIC_FILES
+              value: "true"
+      initContainers:
+        - name: migrations
+          image: jkubacki/jobs-api:kustomize
+          command: ["/bin/sh", "-c"]
+          args: ["cd /app/ && bundle exec rake db:abort_if_pending_migrations"]
+          envFrom:
+            - secretRef:
+                name: secrets
+            - configMapRef:
+                name: configmap
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rails
+spec:
+  selector:
+    app: rails
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

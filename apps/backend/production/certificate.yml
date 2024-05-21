@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: rails
+  namespace: default
+spec:
+  dnsNames:
+    - api.jobs.jakubkubacki.com
+    - www.api.jobs.jakubkubacki.com
+  secretName: rails-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer

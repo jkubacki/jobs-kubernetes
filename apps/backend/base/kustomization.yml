@@ -1,0 +1,6 @@
+resources:
+  - "rails/rails.yml"
+  - "console/console.yml"
+  - "config/ingress.yml"
+
+  # - "jobs/db-migrate.yml"

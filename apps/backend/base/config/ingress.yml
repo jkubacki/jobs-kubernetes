@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rails
+  labels:
+    name: rails
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+spec:
+  tls:
+    - hosts:
+        - api.jobs.jakubkubacki.com
+      secretName: rails-tls
+  rules:
+    - host: api.jobs.jakubkubacki.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: rails
+                port:
+                  number: 3000

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: console
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: console
+  template:
+    metadata:
+      labels:
+        app: console
+    spec:
+      containers:
+        - name: console
+          image: jkubacki/jobs-api:kustomize
+          imagePullPolicy: IfNotPresent
+          command: ["sleep", "infinity"]
+          resources:
+            requests:
+              cpu: 10m
+              memory: 10M
+            limits:
+              cpu: 2000m
+              memory: 2048M
+          envFrom:
+            - secretRef:
+                name: secrets
+            - configMapRef:
+                name: configmap
+          env:
+            - name: RAILS_SERVE_STATIC_FILES
+              value: "true"
