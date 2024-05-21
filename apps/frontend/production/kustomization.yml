@@ -1,0 +1,12 @@
+bases:
+  - ../base
+namespace: frontend
+resources:
+  - certificate.yml
+configMapGenerator:
+  - name: configmap
+    literals:
+      - node-env=production
+images:
+  - name: jkubacki/jobs-frontend
+    newTag: d609be3

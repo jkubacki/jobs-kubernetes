@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: frontend
+  namespace: default
+spec:
+  dnsNames:
+    - jobs.jakubkubacki.com
+    - www.jobs.jakubkubacki.com
+  secretName: frontend-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer

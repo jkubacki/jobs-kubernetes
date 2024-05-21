@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: next-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: next-frontend
+  template:
+    metadata:
+      labels:
+        app: next-frontend
+    spec:
+      containers:
+        - name: next-frontend
+          image: jkubacki/jobs-frontend:kustomize
+          imagePullPolicy: IfNotPresent
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 2
+          resources:
+            requests:
+              cpu: 350m
+              memory: 512Mi
+            limits:
+              cpu: 500m
+              memory: 768Mi
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: configmap
