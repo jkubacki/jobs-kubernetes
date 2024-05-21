@@ -1,0 +1,11 @@
+namespace: fluentd
+resources:
+  - fluentd/namespace.yml
+  - secrets/sealed-secrets.yml
+  - fluentd/fluentd-daemonset-elasticsearch-rbac.yml
+configMapGenerator:
+  - name: configmap
+    namespace: fluentd
+    literals:
+      - elasticsearch-host=elasticsearch-es-http.eck
+      - elasticsearch-port=9200
