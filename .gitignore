@@ -11,3 +11,5 @@ kubeseal.public.dev.pem
 kubeseal.public.dev.pem.backup
 .vscode
 *.sql
+secret_to_encode
+secret_to_decode
