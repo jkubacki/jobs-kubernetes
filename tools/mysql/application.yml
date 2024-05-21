@@ -23,7 +23,7 @@ spec:
           values: |-
             {{values}}
         repoURL: https://github.com/bitnami/charts.git
-        targetRevision: cae0660b14176a03e08ab06dd16a1b0274977cd1
+        targetRevision: 71fd472bb3739bdfe671bcd980559b118dded802
         path: "bitnami/mysql"
       syncPolicy:
         automated:
