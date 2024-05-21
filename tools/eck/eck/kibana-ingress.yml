@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+  name: kibana-ingress
+  namespace: eck
+spec:
+  rules:
+    - host: kibana.kubernetes.jakubkubacki.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kibana-kb-http
+                port:
+                  number: 5601
+  tls:
+    - hosts:
+        - kibana.kubernetes.jakubkubacki.com
+        - www.kibana.kubernetes.jakubkubacki.com
+      secretName: kibana.kubernetes.jakubkubacki.com

@@ -1,0 +1,7 @@
+resources:
+  - eck/namespace.yml
+  - eck/crds.yml
+  - eck/operator.yml
+  - eck/elasticsearch.yml
+  - eck/kibana.yml
+  - eck/kibana-ingress.yml
