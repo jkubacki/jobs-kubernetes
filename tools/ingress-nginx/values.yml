@@ -1,0 +1,12 @@
+values: |
+  controller:
+    replicaCount: 1
+    minAvailable: 1
+    allowSnippetAnnotations: "true"
+    config:
+      compute-full-forwarded-for: "true"
+      use-forwarded-headers: "true"
+    service:
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+        

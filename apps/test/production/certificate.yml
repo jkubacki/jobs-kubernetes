@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: test
+  namespace: default
+spec:
+  dnsNames:
+    - test.jakubkubacki.com
+    - www.test.jakubkubacki.com
+  secretName: test-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
