@@ -1,0 +1,16 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: alertmanager-basic-auth
+  namespace: kube-prometheus-stack
+spec:
+  encryptedData:
+    auth: AgDDvxUu5a2vGJYSQl/esPFhxtugE9uoJQVnvboADOIdl909VOm1HfcVEbxQXxaizwfjKiqe2v3xbSl/zEHLIdbyxOfE7fjSdMSfMxBRZNTrswkk9XFC88nhP+PdD/VDiZY1XdlZVhl7Y/e22oV7jVhGg/JMHEqdsul752KYQ4rGRC/PtYxlvZ7tV0aRJ61kwsbCJ2ER/wfJOW9gO8Uz39jlAw6zZqTCPsHKP7gI2BnwX5MFEb2pTvEiwPbcxyw+/bN8+Q4EEUjO1zbRy/lwWF5F4RLW3Mcu1m/BfYTKBd9kJY5KppojF8niJsxjWfazC41Pc7YChyWlrp8RVw4ry6WQ/BieILUxn2TqpX0gtNI3MdU+o2Gqmi8+pDuo5I5uOGWuDKW9aF5V1KXv/PQOEBPxcbGeNQ5WJIG9R6VPIcjrjs2phF2YYecYJrOystaCXiRvvxGd8yi3bG29JMXjmm4pJwX6SGPJ0y8Lo9pWIIP17qWiJm3sc0jxsIp7lDqgjPQj/WEbSy6zqEXjyWKi8iM3z1oU5klq+ppPQy4HHD0zKc9UOyg7O4zJjRpIrypWpnjpK4hPU5CnreZwVapgWkxMwzdPLAC2tvRBBs7SoOHj8seWdvDqcXr5Q8JDRWgayIJ8PfeeiXlfJyPv1Bifvf9ydwOcwxjm8BqaQlzlgEOIUHR0O7VAnUMJ536PEgys5y3k635nu5Uui0mYitEf9yAmU51r+gPPhSvv3r1Do/q66bLiGNik8lGnCE76CulHQVvVuw==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: alertmanager-basic-auth
+      namespace: kube-prometheus-stack
+    type: Opaque

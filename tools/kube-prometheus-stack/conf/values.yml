@@ -1,0 +1,52 @@
+# https://raw.githubusercontent.com/prometheus-community/helm-charts/kube-prometheus-stack-42.3.0/charts/kube-prometheus-stack/values.yaml
+values: |
+  additionalPrometheusRulesMap: {}
+  alertmanager:
+    alertmanagerSpec:
+      storage:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: gp2
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 10Gi # Default was 50Gi
+  grafana:
+    persistence:
+      type: pvc
+      enabled: true
+      storageClassName: gp2
+      accessModes:
+        - ReadWriteOnce
+      size: 10Gi
+    env:
+      GF_SMTP_ENABLED: "true"
+    envValueFrom:
+      GF_SMTP_USER:
+        secretKeyRef:
+          name: grafana-smtp-secret
+          key: user
+      GF_SMTP_PASSWORD:
+        secretKeyRef:
+          name: grafana-smtp-secret
+          key: password
+      GF_SMTP_HOST:
+        secretKeyRef:
+          name: grafana-smtp-secret
+          key: host
+      GF_SMTP_FROM_ADDRESS:
+        secretKeyRef:
+          name: grafana-smtp-secret
+          key: from_address
+    admin:
+      existingSecret: grafana-admin-secret
+  prometheus:
+    prometheusSpec:
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            storageClassName: gp2
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 30Gi # Default was 50Gi

@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prometheus
+  namespace: default
+spec:
+  dnsNames:
+    - prometheus.kubernetes.jakubkubacki.com
+    - www.prometheus.kubernetes.jakubkubacki.com
+  secretName: prometheus-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer

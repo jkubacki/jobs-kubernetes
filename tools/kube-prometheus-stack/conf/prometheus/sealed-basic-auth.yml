@@ -1,0 +1,16 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: prometheus-basic-auth
+  namespace: kube-prometheus-stack
+spec:
+  encryptedData:
+    auth: AgB5wtmcby77RBm0Iq75zNF4KdrKxj61Ik0Ko+0RgbAw/aD/EuVPb1ZgnbYZ2bCKEgqtb8+4z/nXJaGvEu27UcwzZiujJYleRfGHxmo/VseG2sjI2yGKyfDN9fHyYCrRdMzqX97nUL41PMKITtVZKnE1h3HCeVRun9yFfYbAyylncbNdA6papqhPoTsuMBW5YwXH4Q1rObC8xzTzcWJXLxK7Y7yKyrT9DYxiLkgvRLI/jOicoSssQDez9i1S4j1Fho4AsBCO3k6DzZBRUOH5iLl+HURVM2Gz/wd0YxynrsnTrGLNnS6S5K9FXo6KONprWa3iSpeItwKwIc6awV3OSGohNDuSSaTgCfWBzHlJkYjHKLyP7wMHav1VNpvJYQOmTWDXYNPCxkkK56qd849QrBs5XgSuCiAaRo2gUHqMHGGi9WL9N6AWpwNQuo61QDIkC5V9U5aOhKO32Z2InUeFymx8heyNXy17v7SfE9OZYKdwk0R9n+h1X2RKhV0auVRu+SDxvpPOXvZ0EJuTCxzkZJ9ryRrQNbSlyjRVsfd7cTq7k/q/887NqnkoTPkX67kpWIll3jTuQlSP7Q9TGfEYfY5AmuMcTV11b8ZAbtsUBNAHT7fNHbX7kgRLUEcRg8Kjmxkt9nV7pYCdBqvFikxYAYUdBjZgnDvnakYQ+viCE2d+bcitkmdGxCWra1oqjjXgqiUTzgQOTd7Z9fiKNBJooQQSz61swf2YogV/UbOy0KUpd8Lrft1nOLpC7bepYJ1i8dAWQQ==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: prometheus-basic-auth
+      namespace: kube-prometheus-stack
+    type: Opaque

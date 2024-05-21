@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kube-prometheus-stack
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/jkubacki/jobs-kubernetes
+        revision: HEAD
+        files:
+          - path: "tools/kube-prometheus-stack/conf/values.yml"
+  template:
+    metadata:
+      name: kube-prometheus-stack
+    spec:
+      destination:
+        server: "https://kubernetes.default.svc"
+        namespace: kube-prometheus-stack
+      project: default
+      source:
+        helm:
+          skipCrds: true
+          values: |-
+            {{values}}
+        repoURL: https://github.com/prometheus-community/helm-charts.git
+        targetRevision: kube-prometheus-stack-54.1.0
+        path: "charts/kube-prometheus-stack"
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
