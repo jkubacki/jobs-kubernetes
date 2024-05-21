@@ -1,8 +1,8 @@
 bases:
   - ../base
 namespace: cv
-resources:
-  - certificate.yml
+# resources:
+#   - certificate.yml
 configMapGenerator:
   - name: configmap
     literals:
