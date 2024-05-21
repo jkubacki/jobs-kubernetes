@@ -1,0 +1,7 @@
+resources:
+  - "config/namespace.yml"
+
+  - "cv/service.yml"
+  - "cv/cv.yml"
+
+  - "config/ingress.yml"
