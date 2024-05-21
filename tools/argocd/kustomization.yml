@@ -4,7 +4,7 @@ namespace: argocd
 resources:
   - "namespace.yml"
   - "install.yml"
-  # - "ingress.yml"
+  - "ingress.yml"
 patches:
   - path: "argo-cd-cm-patch.yml"
     target:
