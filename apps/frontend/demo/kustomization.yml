@@ -12,10 +12,10 @@ patches:
     target:
       kind: Ingress
       name: frontend
-  - path: "patches/next-frontend.yml"
+  - path: "patches/frontend.yml"
     target:
       kind: Deployment
-      name: next-frontend
+      name: frontend
 images:
   - name: jkubacki/jobs-frontend
     newTag: "53bfe65"

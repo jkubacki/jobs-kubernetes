@@ -2,6 +2,6 @@ resources:
   - "config/namespace.yml"
 
   - "frontend/service.yml"
-  - "frontend/next-frontend.yml"
+  - "frontend/frontend.yml"
 
   - "config/ingress.yml"

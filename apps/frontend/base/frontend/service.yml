@@ -4,7 +4,7 @@ metadata:
   name: frontend
 spec:
   selector:
-    app: next-frontend
+    app: frontend
   ports:
     - protocol: TCP
       port: 3000
