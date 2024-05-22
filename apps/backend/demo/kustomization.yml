@@ -18,4 +18,4 @@ configMapGenerator:
       - ELASTICSEARCH_PORT=9200
 images:
   - name: jkubacki/jobs-api
-    newTag: "ac07192"
+    newTag: "2d9bad5"
