@@ -6,3 +6,18 @@ metadata:
     nginx.ingress.kubernetes.io/auth-type: basic
     nginx.ingress.kubernetes.io/auth-secret: basic-auth
     nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
+    nginx.ingress.kubernetes.io/configuration-snippet: | # Allow preflight requests without authorization
+      # http2_max_header_size 256k;
+      # http2_max_field_size 256k;
+      # large_client_header_buffers 64k;
+      # fix cors issues of ingress when using external auth service
+      if ($request_method = OPTIONS) {
+        add_header Content-Length 0;
+        add_header Content-Type text/plain;
+        return 204;
+      }
+      more_set_headers "Access-Control-Allow-Credentials: true";
+      more_set_headers "Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS";
+      more_set_headers "Access-Control-Allow-Headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization";
+      more_set_headers "Access-Control-Allow-Origin: $http_origin";
+      more_set_headers "Access-Control-Max-Age: 600";
