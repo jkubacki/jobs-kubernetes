@@ -9,4 +9,4 @@ configMapGenerator:
       - node-env=production
 images:
   - name: jkubacki/cv
-    newTag: "2665764"
+    newTag: "4b8dfb0"
