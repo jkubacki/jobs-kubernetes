@@ -4,10 +4,11 @@ namespace: backend-demo
 resources:
   - secrets/sealed-secrets.yml
   - certificate.yml
-- path: patches/ingress.yml
-    target:
-      kind: Ingress
-      name: rails
+patches:
+  - path: patches/ingress.yml
+      target:
+        kind: Ingress
+        name: rails
 configMapGenerator:
   - name: configmap
     literals:
