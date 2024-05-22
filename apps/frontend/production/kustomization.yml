@@ -8,6 +8,11 @@ configMapGenerator:
   - name: configmap
     literals:
       - node-env=production
+patches:
+  - path: "patches/ingress.yml"
+    target:
+      kind: Ingress
+      name: frontend
 images:
   - name: jkubacki/jobs-frontend
     newTag: "production-e2518c9"
