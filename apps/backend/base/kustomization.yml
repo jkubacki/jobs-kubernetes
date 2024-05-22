@@ -3,4 +3,4 @@ resources:
   - "console/console.yml"
   - "config/ingress.yml"
 
-  # - "jobs/db-migrate.yml"
+  - "jobs/db-migrate.yml"
