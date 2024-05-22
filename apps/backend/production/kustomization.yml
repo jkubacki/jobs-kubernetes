@@ -16,7 +16,7 @@ patches:
   - path: "patches/ingress.yml"
     target:
       kind: Ingress
-      name: backend
+      name: rails
 images:
   - name: jkubacki/jobs-api
     newTag: "2d9bad5"
