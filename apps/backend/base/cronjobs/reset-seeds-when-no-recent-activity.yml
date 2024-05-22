@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: z-cronjob-reset-seeds-when-no-recent-activity
 spec:
-  schedule: "*/10 * * * *" # every 10 minutes
+  schedule: "*/5 * * * *" # every 5 minutes
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 3
