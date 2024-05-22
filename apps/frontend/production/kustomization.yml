@@ -9,4 +9,4 @@ configMapGenerator:
       - node-env=production
 images:
   - name: jkubacki/jobs-frontend
-    newTag: "53bfe65"
+    newTag: "production-e2518c9"
