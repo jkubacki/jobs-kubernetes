@@ -1,0 +1,23 @@
+bases:
+  - ../base
+resources:
+  - certificate.yml
+  - secrets/sealed-basic-auth.yml
+  - secrets/secrets.sealed-secret.yml
+namespace: frontend-demo
+configMapGenerator:
+  - name: configmap
+    literals:
+      - node-env=production
+patches:
+  - path: "patches/ingress.yml"
+    target:
+      kind: Ingress
+      name: frontend
+  - path: "patches/next-frontend.yml"
+    target:
+      kind: Deployment
+      name: frontend
+images:
+  - name: jkubacki/jobs-frontend
+    newTag: "53bfe65"
