@@ -4,6 +4,7 @@ namespace: backend
 resources:
   - secrets/sealed-secrets.yml
   - certificate.yml
+  - "secrets/sealed-basic-auth.yml"
 configMapGenerator:
   - name: configmap
     namespace: backend
@@ -11,6 +12,11 @@ configMapGenerator:
       - MYSQL_POOL=20
       - ELASTICSEARCH_HOST=elasticsearch-es-http.eck
       - ELASTICSEARCH_PORT=9200
+patches:
+  - path: "patches/ingress.yml"
+    target:
+      kind: Ingress
+      name: backend
 images:
   - name: jkubacki/jobs-api
     newTag: "2d9bad5"
