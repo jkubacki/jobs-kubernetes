@@ -14,4 +14,4 @@ patches:
       name: frontend
 images:
   - name: jkubacki/jobs-frontend
-    newTag: "53bfe65"
+    newTag: "demo-f3b3ce3"
