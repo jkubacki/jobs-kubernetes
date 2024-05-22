@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: z-cronjob-reset-seeds-when-no-recent-activity
 spec:
-  schedule: "*/10 * * * *" # every 10 minutes
+  schedule: "*/1 * * * *" # every 10 minutes
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 1
   failedJobsHistoryLimit: 3
@@ -19,7 +19,7 @@ spec:
               args:
                 [
                   "-c",
-                  "cd /app/ && bundle exec bin/rails runner 'Seeds::ResetWhenNoRecentActivity.call'",
+                  "cd /app/ && bundle exec bin/rails runner 'Seeds::ResetWhenNoRecentActivity.call(since: 1.minute.ago)'",
                 ]
               envFrom:
                 - secretRef:
