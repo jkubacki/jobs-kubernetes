@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: mysql-demo
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/jkubacki/jobs-kubernetes
+        revision: HEAD
+        files:
+          - path: "tools/mysql-demo/values.yml"
+  template:
+    metadata:
+      name: mysql-demo
+    spec:
+      destination:
+        server: "https://kubernetes.default.svc"
+        namespace: mysql-demo
+      project: default
+      source:
+        helm:
+          values: |-
+            {{values}}
+        repoURL: https://github.com/bitnami/charts.git
+        targetRevision: 71fd472bb3739bdfe671bcd980559b118dded802
+        path: "bitnami/mysql"
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
