@@ -15,7 +15,7 @@ patches:
   - path: "patches/next-frontend.yml"
     target:
       kind: Deployment
-      name: frontend
+      name: next-frontend
 images:
   - name: jkubacki/jobs-frontend
     newTag: "53bfe65"
