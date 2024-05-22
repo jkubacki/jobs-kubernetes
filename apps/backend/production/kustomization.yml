@@ -14,4 +14,4 @@ configMapGenerator:
       - TEST=test
 images:
   - name: jkubacki/jobs-api
-    newTag: 1e28249
+    newTag: d917a6f
