@@ -1,12 +1,15 @@
 bases:
   - ../base
-namespace: backend
+namespace: backend-demo
 resources:
   - secrets/sealed-secrets.yml
   - certificate.yml
+- path: patches/ingress.yml
+    target:
+      kind: Ingress
+      name: rails
 configMapGenerator:
   - name: configmap
-    namespace: backend
     literals:
       - MYSQL_POOL=20
       - ELASTICSEARCH_HOST=elasticsearch-es-http.eck
