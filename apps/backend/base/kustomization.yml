@@ -3,4 +3,6 @@ resources:
   - "console/console.yml"
   - "config/ingress.yml"
 
+  - "cronjobs/reset-seeds-when-no-recent-activity.yml"
+
   - "jobs/db-migrate.yml"
