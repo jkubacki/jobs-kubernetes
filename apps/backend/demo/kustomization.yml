@@ -5,10 +5,10 @@ resources:
   - secrets/sealed-secrets.yml
   - certificate.yml
 patches:
-  - path: patches/ingress.yml
-      target:
-        kind: Ingress
-        name: rails
+  - path: "patches/ingress.yml"
+    target:
+      kind: Ingress
+      name: rails
 configMapGenerator:
   - name: configmap
     literals:
