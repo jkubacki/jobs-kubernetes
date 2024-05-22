@@ -4,6 +4,7 @@ namespace: backend-demo
 resources:
   - secrets/sealed-secrets.yml
   - certificate.yml
+  - "cronjobs/reset-seeds-when-no-recent-activity.yml"
 patches:
   - path: "patches/ingress.yml"
     target:
