@@ -9,6 +9,7 @@ configMapGenerator:
     literals:
       - node-env=production
       - NEXT_PUBLIC_API_PATH="https://api.demo.jakubkubacki.com/api/v1/"
+      - NEXT_PUBLIC_ENVIRONMENT="DEMO"
 patches:
   - path: "patches/ingress.yml"
     target:
