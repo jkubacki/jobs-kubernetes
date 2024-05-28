@@ -15,4 +15,4 @@ patches:
       name: frontend
 images:
   - name: jkubacki/jobs-frontend
-    newTag: "production-aa537351"
+    newTag: "production-091a1461"
