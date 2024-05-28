@@ -19,4 +19,4 @@ patches:
       name: rails
 images:
   - name: jkubacki/jobs-api
-    newTag: "d86b347"
+    newTag: "aa90c60"
