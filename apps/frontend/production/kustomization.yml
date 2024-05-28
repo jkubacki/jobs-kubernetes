@@ -4,6 +4,7 @@ namespace: frontend
 resources:
   - certificate.yml
   - "secrets/sealed-basic-auth.yml"
+  - "secrets/sealed-secrets.yml"
 configMapGenerator:
   - name: configmap
     literals:
