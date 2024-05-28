@@ -10,6 +10,7 @@ configMapGenerator:
     literals:
       - node-env=production
       - NEXT_PUBLIC_API_PATH="https://api.jobs.jakubkubacki.com/api/v1/"
+      - NEXT_PUBLIC_ENVIRONMENT="PRODUCTION"
 patches:
   - path: "patches/ingress.yml"
     target:
