@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: rails
 spec:
-  replicas: 2
+  replicas: 0
   revisionHistoryLimit: 1
   selector:
     matchLabels:
